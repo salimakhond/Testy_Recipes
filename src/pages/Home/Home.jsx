@@ -11,9 +11,11 @@ const Home = () => {
     return (
         <>
             <Banner></Banner>
-            {
-                recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>)
-            }
+            <div className='row'>
+                {
+                    recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>)
+                }
+            </div>
         </>
     );
 };
