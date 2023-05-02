@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../pages/provider/AuthProvider';
@@ -7,27 +7,51 @@ import { AuthContext } from '../../pages/provider/AuthProvider';
 const Header = () => {
 
 
-    const {user} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                <Container>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <h2 className='fw-bold'>Testy Recipes</h2>
-                        <Nav className="mx-auto">
-                            <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/'}>Home</Link>
-                            <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/blog'}>Blog</Link>
-                        </Nav>
-                        <Nav className='d-flex gap-3 align-items-lg-center'>
-                            <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
-                            <Link to="/login">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Container>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <h2 className='fw-bold'>Testy Recipes</h2>
+                    <Nav className="mx-auto">
+                        <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/'}>Home</Link>
+                        <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/blog'}>Blog</Link>
+                    </Nav>
+                    <Nav className='d-flex gap-3 align-items-lg-center'>
+                        {
+                            user && <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">{user.displayName ? user.displayName: 'No Username'}</Tooltip>}>
+                                <span className="d-inline-block">
+                                    {
+                                        user.photoURL ? <img style={{width: '50px', borderRadius: '50%'}} src={user.photoURL} alt="" /> : <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
+                                    }
+                                </span>
+                            </OverlayTrigger>
+
+
+                        }
+
+
+
+
+                        {
+                            user ? <Button onClick={handleLogout} variant="success">Log Out</Button> : <Link to="/login">
                                 <Button variant="success">Log In</Button>
                             </Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                        }
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 

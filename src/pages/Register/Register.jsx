@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
@@ -12,7 +13,9 @@ const Register = () => {
 
     const [accepted, setAccepted] = useState(false);
 
-    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const [registerError, setRegisterError] = useState('')
 
     const handleAccepted = event =>{
         setAccepted(event.target.checked)
@@ -25,14 +28,20 @@ const Register = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        setError('')
+        setSuccess('')
+        setRegisterError('')
         console.log(name, email, photo, password)
+        if (password.length < 6) {
+            setRegisterError('Please Add Minimum 6 Characters');
+            return;
+        }
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
-                setError('Create a User Successfully')
+                setSuccess('Create a User Successfully')
                 form.reset();
+                UpdateUserData(result.user, name, photo)
             })
             .catch(error => {
                 console.log(error);
@@ -40,6 +49,20 @@ const Register = () => {
 
     }
 
+
+    const UpdateUserData = (user, name, photo) =>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+        .then(() => {
+            console.log('User Name Update');
+        })
+        .catch(error => {
+            console.error(error.message);
+            setRegisterError(error.message);
+        })
+    }
 
     return (
         <Container className='w-25 my-5 mx-auto'>
@@ -78,8 +101,9 @@ const Register = () => {
                 </Form.Text>
                 <br />
                 <Form.Text className="text-success mt-2">
-                    {error}
+                    {success}
                 </Form.Text>
+                <p className='text-danger mt-2'>{registerError}</p>
             </Form>
         </Container>
     );
