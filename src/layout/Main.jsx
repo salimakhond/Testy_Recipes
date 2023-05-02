@@ -9,9 +9,11 @@ const Main = () => {
         <div>
             <Header></Header>
             <Container>
-                <Outlet></Outlet>
-                <Footer></Footer>
+                <div className='md:min-h-[calc(100vh-341px)] w-full'>
+                    <Outlet></Outlet>
+                </div>
             </Container>
+            <Footer></Footer>
         </div>
     );
 };

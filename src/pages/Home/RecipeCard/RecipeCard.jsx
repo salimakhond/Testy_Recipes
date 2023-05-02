@@ -19,7 +19,6 @@ const RecipeCard = ({ recipe }) => {
                     <h5 style={{color: '#919699'}}>Numbers of recipes : {number} Recipes</h5>
                     <Button className='mt-3' variant="primary"><Link className='fw-semibold fs-5 text-decoration-none text-white' to={`/recipe/${id}`}>View Recipes</Link></Button>
                 </Card.Body>
-                
             </Card>
         </div>
     );
