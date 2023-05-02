@@ -4,13 +4,18 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const RecipeDetails = () => {
 
     const recipeDetails = useLoaderData();
-    console.log(recipeDetails)
     const { id, chefName, img, experience, number, bio, like, recipe } = recipeDetails;
+
+
+    const handleFavoriteBtn = () => {
+        toast.success('Favorite Item!', { autoClose: 500 })
+    }
+
 
     return (
         <Card className='my-5'>
@@ -51,6 +56,8 @@ const RecipeDetails = () => {
                         </tbody>
                     </Table>)
                 }
+                <Button onClick={handleFavoriteBtn} variant="success">Favorite</Button>
+                <Toaster />
             </Card.Body>
         </Card>
     );
