@@ -25,7 +25,7 @@ const RecipeDetails = () => {
                 <p style={{ color: '#919699', fontSize: '22px', fontWeight: '600', marginBottom: '10px' }}>Numbers of recipes : {number} Recipes</p>
                 <p style={{ color: '#919699', fontSize: '22px', fontWeight: '600', marginBottom: '30px' }}>Experience : {experience}</p>
                 {
-                    recipe.map(r => <Table striped bordered hover>
+                    recipe.map(r => <Table responsive key={r.id} striped bordered hover>
                         <thead>
                             <tr>
                                 <th>Recipe Name</th>
@@ -36,13 +36,13 @@ const RecipeDetails = () => {
                             <tr>
                                 <th>Ingredients</th>
                                 {
-                                    r.ingredients.map(ingredient => <td>{ingredient}</td>)
+                                    r.ingredients.map(ingredient => <td key={ingredient}>{ingredient}</td>)
                                 }
                             </tr>
                             <tr>
                                 <th>Cooking Method</th>
                                 {
-                                    r.steps.map(step => <td>{step}</td>)
+                                    r.steps.map(step => <td key={step}>{step}</td>)
                                 }
                             </tr>
                             <tr>
