@@ -6,18 +6,41 @@ const RecipeDetails = () => {
 
     const recipeDetails = useLoaderData();
     console.log(recipeDetails)
-    const { id, chefName, img, experience, number,bio, like, recipe } = recipeDetails;
+    const { id, chefName, img, experience, number, bio, like, recipe } = recipeDetails;
 
     return (
         <Card className='my-5'>
             <Card.Body>
                 <Card.Img className='mb-3' style={{ height: '600px' }} variant="top" src={img} />
                 <Card.Title style={{ color: '#919699', fontSize: '28px', fontWeight: '700' }}>Chef Name : <span style={{ color: '#49a0ad' }}> {chefName}</span></Card.Title>
-                <p style={{color: '#919699'}}>Description : {bio} </p>
-                <p style={{color: '#919699', fontSize:'22px', fontWeight: '600', marginBottom: '10px' }}>Numbers of Like : {like}</p>
-                <p style={{ color: '#919699', fontSize:'22px', fontWeight: '600', marginBottom: '10px'  }}>Numbers of recipes : {number} Recipes</p>
-                <p style={{ color: '#919699', fontSize:'22px', fontWeight: '600', marginBottom: '30px' }}>Experience : {experience}</p>
-                
+                <p style={{ color: '#919699' }}>Description : {bio} </p>
+                <p style={{ color: '#919699', fontSize: '22px', fontWeight: '600', marginBottom: '10px' }}>Numbers of Like : {like}</p>
+                <p style={{ color: '#919699', fontSize: '22px', fontWeight: '600', marginBottom: '10px' }}>Numbers of recipes : {number} Recipes</p>
+                <p style={{ color: '#919699', fontSize: '22px', fontWeight: '600', marginBottom: '30px' }}>Experience : {experience}</p>
+                {
+                    recipe.map(r => <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Recipe Name</th>
+                                <th colSpan={5}>{r.name}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Ingredients</th>
+                                {
+                                    r.ingredients.map(ingredient => <td>{ingredient}</td>)
+                                }
+                            </tr>
+                            <tr>
+                                <th>Cooking Method</th>
+                                {
+                                    r.steps.map(step => <td>{step}</td>)
+                                }
+                            </tr>
+                        </tbody>
+                    </Table>)
+                }
             </Card.Body>
         </Card>
     );
