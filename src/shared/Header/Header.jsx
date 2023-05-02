@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../pages/provider/AuthProvider';
 
 const Header = () => {
 
+
+    const {user} = useContext(AuthContext)
 
     return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -18,7 +21,6 @@ const Header = () => {
                         </Nav>
                         <Nav className='d-flex gap-3 align-items-lg-center'>
                             <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
-
                             <Link to="/login">
                                 <Button variant="success">Log In</Button>
                             </Link>
