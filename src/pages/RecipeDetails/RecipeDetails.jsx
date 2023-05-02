@@ -1,6 +1,10 @@
 import React from 'react';
 import { Button, Card, Table } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
+
 
 const RecipeDetails = () => {
 
@@ -37,6 +41,12 @@ const RecipeDetails = () => {
                                 {
                                     r.steps.map(step => <td>{step}</td>)
                                 }
+                            </tr>
+                            <tr>
+                                <th>Rating</th>
+                                <td className='d-flex align-items-center' colSpan={5}>{r.rating} 
+                                <Rating className='ms-2' style={{ maxWidth: 150 }} value={r.rating || 0} readOnly />
+                                </td>
                             </tr>
                         </tbody>
                     </Table>)
