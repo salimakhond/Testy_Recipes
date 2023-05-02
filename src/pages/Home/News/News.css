@@ -1,0 +1,16 @@
+.latest-news{
+    margin: 80px 0px;
+}
+.latest-news img{
+    height: 200px;
+}
+.post-date{
+    color: #D54215;
+}
+.latest-news a{
+    text-decoration: none;
+    color: #4A4A4A;
+}
+.latest-news a:hover{
+    color: rgb(73, 160, 173);
+}

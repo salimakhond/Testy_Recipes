@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 const RecipeCard = ({ recipe }) => {
-    const { id, chefName, img, experience, number } = recipe;
+    const { id, chefName, img, experience, number, like } = recipe;
 
-    console.log(recipe)
     return (
 
         <div className='col-12 col-md-6 mt-5'>
@@ -17,6 +16,7 @@ const RecipeCard = ({ recipe }) => {
                     <Card.Title style={{color: '#919699', fontSize:'24px'}}>Chef Name : <span style={{color: '#49a0ad'}}> {chefName}</span></Card.Title>
                     <h5 style={{color: '#919699'}}>Experience : {experience}</h5>
                     <h5 style={{color: '#919699'}}>Numbers of recipes : {number} Recipes</h5>
+                    <h5 style={{color: '#919699'}}>Numbers of Like : {like}</h5>
                     <Button className='mt-3' variant="primary"><Link className='fw-semibold fs-5 text-decoration-none text-white' to={`/recipe/${id}`}>View Recipes</Link></Button>
                 </Card.Body>
             </Card>

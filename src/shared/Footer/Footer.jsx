@@ -10,11 +10,11 @@ const Footer = () => {
                 <div className=''>
                     <div className='footer-top row'>
                         <div className='col-12 col-md-6 col-lg-4 mb-10'>
-                            <Link className='text-decoration-none fw-bold' to='/'><h2 className='text-white mb-5'>Testy Recipes</h2></Link>
-                            <p className='mb-5 md:mr-10 lg:mr-0'>There are many variations of passages of Lorem Ipsum , but the majority have suffered alteration in some form.</p>
+                            <Link className='text-decoration-none fw-bold' to='/'><h2 className='text-white mb-4'>Testy Recipes</h2></Link>
+                            <p className='mb-5 me-5'>There are many variations of passages of Lorem Ipsum , but the majority have suffered alteration in some form.</p>
                         </div>
                         <div className='col-12 col-md-6 col-lg-2 mb-10'>
-                            <h4 className='mb-4 text-white '>Company</h4>
+                            <h4 className='mb-4 text-white '>Learn More</h4>
                             <ul className=''>
                                 <li className='mb-3'>About Us</li>
                                 <li className='mb-3'>Recipe</li>
@@ -23,12 +23,12 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className='col-12 col-md-6 col-lg-2 mb-10'>
-                            <h4 className='mb-4 text-white '>Recipe Categories</h4>
+                            <h4 className='mb-4 text-white '>Categories</h4>
                             <ul className=''>
                                 <li className='mb-3'>Lunch</li>
-                                <li className='mb-3'>Main Dishes</li>
-                                <li className='mb-3'>Beverages</li>
-                                <li className='mb-3'>Side Dishes</li>
+                                <li className='mb-3'>Breakfast</li>
+                                <li className='mb-3'>Drink</li>
+                                <li className='mb-3'>Appetizer & Snack</li>
                             </ul>
                         </div>
                         <div className='col-12 col-md-6 col-lg-2 mb-10'>
@@ -40,7 +40,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className='col-12 col-md-6 col-lg-2 mb-10'>
-                            <h4 className='mb-4 text-white '>Contact</h4>
+                            <h4 className='mb-4 text-white '>Get in connect</h4>
                             <ul className=''>
                                 <li className='mb-3'>Dhaka , Bangladesh</li>
                                 <li className='mb-3'>+1 777 - 978 - 5570</li>

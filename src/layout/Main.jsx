@@ -9,7 +9,7 @@ const Main = () => {
         <div>
             <Header></Header>
             <Container>
-                <div className='md:min-h-[calc(100vh-341px)] w-full'>
+                <div style={{minHeight: 'calc(100vh - 341px)'}}>
                     <Outlet></Outlet>
                 </div>
             </Container>
