@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard/RecipeCard';
 import News from './News/News';
+import About from '../About/About';
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
                     recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe}></RecipeCard>)
                 }
             </div>
+            <About></About>
             <News></News>
         </>
     );
