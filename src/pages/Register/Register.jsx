@@ -40,8 +40,8 @@ const Register = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 setSuccess('Create a User Successfully')
-                form.reset();
                 UpdateUserData(result.user, name, photo)
+                form.reset();
             })
             .catch(error => {
                 console.log(error);

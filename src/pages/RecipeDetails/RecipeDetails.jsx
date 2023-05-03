@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Table } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
@@ -11,8 +11,11 @@ const RecipeDetails = () => {
     const recipeDetails = useLoaderData();
     const { id, chefName, img, experience, number, bio, like, recipe } = recipeDetails;
 
+    const [disable, setDisable] = useState(false);
+
     const handleFavoriteBtn = () => {
         toast.success('Favorite Item!', { autoClose: 500 })
+        setDisable(true)
     }
 
     return (
@@ -54,7 +57,7 @@ const RecipeDetails = () => {
                         </tbody>
                     </Table>)
                 }
-                <Button onClick={handleFavoriteBtn} variant="success">Favorite</Button>
+                <Button onClick={handleFavoriteBtn} disabled={disable} variant="success">Favorite</Button>
                 <Toaster />
             </Card.Body>
         </Card>

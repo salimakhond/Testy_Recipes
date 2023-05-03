@@ -1,13 +1,16 @@
 import React from 'react';
 import bannerImg from '../../assets/banner.jpg';
-import { Image } from 'react-bootstrap';
-
+import { Button, Image } from 'react-bootstrap';
+import './Banner.css'
 
 const Banner = () => {
     return (
-        <div className='position-relative'>
-            <Image src={bannerImg} fluid />
-            <h2 className='position-absolute top-50 text-white fw-bolder text-center' style={{margin: '0px 100px', fontSize: '42px'}}>Easily add-in a short description about your recipe! This can be of any length. Remember, you are trying to sell your recipe!</h2>
+        <div style={{ backgroundImage: `url(${bannerImg})`, height: '400px' }} className=' position-relative '>
+            
+            <div className='text-center pt-5 mx-md-5 px-lg-5'>
+                <h2 className='text-white fw-bolder pt-md-5 mx-md-5 px-lg-5' style={{ fontSize: '42px' }}>No Matter How You Cook, Testy Recipe Has Many The Recipes.</h2>
+                <Button className='mt-3 fw-semibold fs-4' variant="primary">Explore Recipes</Button>
+            </div>
         </div>
     );
 };
