@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../pages/provider/AuthProvider';
 
 const Header = () => {
@@ -23,8 +23,10 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Link className='text-decoration-none fw-bold' to='/'><h2 className='fw-bold text-black'>Testy Recipes</h2></Link>
                     <Nav className="mx-auto">
-                        <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/'}>Home</Link>
-                        <Link className='me-3 fw-semibold fs-5 text-decoration-none text-dark' to={'/blog'}>Blog</Link>
+                        <NavLink to='/'
+                            className={({ isActive }) => (isActive ? 'me-3 fw-semibold fs-5 text-decoration-none text-primary' : 'me-3 fw-semibold fs-5 text-decoration-none text-dark')}>Home</NavLink>
+                        <NavLink to='/blog'
+                            className={({ isActive }) => (isActive ? 'me-3 fw-semibold fs-5 text-decoration-none text-primary' : 'me-3 fw-semibold fs-5 text-decoration-none text-dark')}>Blog</NavLink>
                     </Nav>
                     <Nav className='d-flex gap-3 align-items-lg-center'>
                         {

@@ -16,13 +16,13 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader:()=> fetch('http://localhost:5000/recipes'),
+                loader:()=> fetch('https://testy-recipes-server-salimakhond.vercel.app/recipes'),
                 
             },
             {
                 path: 'recipe/:id',
                 element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+                loader: ({params}) => fetch(`https://testy-recipes-server-salimakhond.vercel.app/recipes/${params.id}`)
             },
             {
                 path: '/login',
