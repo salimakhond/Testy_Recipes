@@ -65,7 +65,10 @@ const Register = () => {
     }
 
     return (
-        <Container style={{ width: '350px' }}  className='my-5 mx-auto'>
+        <Container style={{ width: '350px',background: '#fff',
+        border: '1px solid #eee', padding: '40px' }}  className='my-5 mx-auto'>
+            <h3 className='mb-2 fw-bold'>Register</h3>
+            <h5 className='mb-4 fw-medium'>Create Your Account</h5>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your name</Form.Label>

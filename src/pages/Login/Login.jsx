@@ -14,6 +14,7 @@ const Login = () => {
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -31,7 +32,8 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
+                setError(error.message)
             })
     }
 
@@ -62,7 +64,10 @@ const Login = () => {
     }
 
     return (
-        <Container style={{ width: '350px' }} className='my-5 mx-auto'>
+        <Container style={{ width: '350px',background: '#fff',
+        border: '1px solid #eee', padding: '40px' }} className='my-5 mx-auto'>
+            <h3 className='mb-2 fw-bold'>Login</h3>
+            <h5 className='mb-4 fw-medium'>Welcome Back, Please Login Your Account</h5>
             <Form onSubmit={handleSignIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -86,9 +91,11 @@ const Login = () => {
                     <Button onClick={handleGoogleSignIn} className='mb-3 w-100' variant="outline-danger"> <FaGoogle /> Login with Google</Button>
                     <Button onClick={handleGitHubSignIn} className='mb-3 w-100' variant="outline-dark"> <FaGithub /> Login with Github</Button>
                 </div>
-                <br />
                 <Form.Text className="text-success">
                     {success}
+                </Form.Text>
+                <Form.Text className="text-danger">
+                    {error}
                 </Form.Text>
             </Form>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -16,9 +16,16 @@ const Footer = () => {
                         <div className='col-12 col-md-6 col-lg-2 mb-10'>
                             <h4 className='mb-4 text-white '>Learn More</h4>
                             <ul className=''>
+                                <li className='mb-3'>
+                                    <NavLink to='/'
+                                        className={({ isActive }) => (isActive ? 'text-decoration-none text-primary' : 'text-decoration-none text-white')}>Home</NavLink>
+                                </li>
+                                <li className='mb-3'>
+                                    <NavLink to='/blog'
+                                        className={({ isActive }) => (isActive ? 'text-decoration-none text-primary' : 'text-decoration-none text-white')}>Blog</NavLink>
+                                </li>
                                 <li className='mb-3'>About Us</li>
                                 <li className='mb-3'>Recipe</li>
-                                <li className='mb-3'>Blog</li>
                                 <li className='mb-3'>Latest News</li>
                             </ul>
                         </div>
@@ -49,7 +56,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div className='py-5 d-lg-flex justify-content-between text-center'>
                         <p className='pb-2 md:mb-0'><span>&copy;</span> 2023 Testy Recipes. All Rights Reserved</p>
                         <p>Powered by Testy Recipes</p>

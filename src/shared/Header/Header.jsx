@@ -33,7 +33,7 @@ const Header = () => {
                             user && <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">{user.displayName ? user.displayName : 'No Username Found'}</Tooltip>}>
                                 <span className="d-inline-block">
                                     {
-                                        user.photoURL ? <img style={{ width: '50px', borderRadius: '50%' }} src={user.photoURL} alt="" /> : <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
+                                        user.photoURL ? <img className='' style={{ width: '50px', borderRadius: '50%'}} src={user.photoURL} alt="" /> : <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
                                     }
                                 </span>
                             </OverlayTrigger>

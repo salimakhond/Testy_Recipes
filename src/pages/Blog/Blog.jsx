@@ -7,7 +7,7 @@ const Blog = () => {
 
 
     return (
-        <div className='my-5 py-5'>
+        <div className='my-md-5 py-5'>
             <div className='' ref={ref}>
                 <div className='mb-5'>
                     <h2 className='fw-bold mb-4'>1. Tell us the differences between uncontrolled and controlled components?
