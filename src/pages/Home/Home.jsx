@@ -17,7 +17,7 @@ const Home = () => {
                 <div className='col-md-10 offset-md-1 col-lg-8 offset-lg-2'>
                     <div className='text-center'>
                         <h2 className='fw-bold mb-3'>Our Special Chef</h2>
-                        <p className='mb-0'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea voluptates porro exercitationem! Eius natus cumque, odio cupiditate dolor autem sint labore, officiis aliquam similique, est alias officia! Illo, asperiores.</p>
+                        <p className='mb-0'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea voluptates porro exercitationem! Eius natus cumque, odio cupiditate dolor autem sint labore, officiis aliquam similique, est alias officia! Illo asperiores.</p>
                     </div>
                 </div>
                 {
